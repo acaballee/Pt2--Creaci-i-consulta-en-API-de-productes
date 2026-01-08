@@ -1,0 +1,51 @@
+# ninja log v5
+3652	3765	0	CMakeFiles/install.util	c20ce7fcba7ae4c2
+3774	3859	1762444261416449657	intermediates_do_not_run/first_flutter	48dc35e026918329
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/flutter_linux.h	1ec17a5c42bcff6a
+1	3652	0	flutter/_phony_	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_view.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_value.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_string_codec.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_standard_message_codec.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_plugin_registry.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_method_response.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_binary_codec.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_method_call.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_binary_messenger.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_dart_project.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_engine.h	1ec17a5c42bcff6a
+8130	8815	1762441119967182824	runner/CMakeFiles/first_flutter.dir/my_application.cc.o	787f378559bd6384
+8130	8767	1762441119921183247	runner/CMakeFiles/first_flutter.dir/main.cc.o	d11427ee1f06fe42
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_message_codec.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_standard_method_codec.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_json_message_codec.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/libflutter_linux_gtk.so	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_basic_message_channel.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_json_method_codec.h	1ec17a5c42bcff6a
+8130	8752	1762441119907183376	runner/CMakeFiles/first_flutter.dir/__/flutter/generated_plugin_registrant.cc.o	949c04acaa685af8
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_method_channel.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_plugin_registrar.h	1ec17a5c42bcff6a
+1	3652	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_method_codec.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/libflutter_linux_gtk.so	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_basic_message_channel.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_binary_codec.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_binary_messenger.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_dart_project.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_engine.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_json_message_codec.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_json_method_codec.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_message_codec.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_method_call.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_method_channel.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_method_codec.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_method_response.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_plugin_registrar.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_plugin_registry.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_standard_message_codec.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_standard_method_codec.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_string_codec.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_value.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/fl_view.h	1ec17a5c42bcff6a
+1	3627	0	/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/linux/flutter/ephemeral/flutter_linux/flutter_linux.h	1ec17a5c42bcff6a
+1	3627	0	flutter/_phony_	1ec17a5c42bcff6a
+3627	3739	0	CMakeFiles/install.util	c20ce7fcba7ae4c2

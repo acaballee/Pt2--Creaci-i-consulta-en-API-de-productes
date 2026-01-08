@@ -1,0 +1,14 @@
+/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/build/linux/x64/debug/bundle/first_flutter
+/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/build/linux/x64/debug/bundle/data/icudtl.dat
+/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so
+/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.json
+/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/build/linux/x64/debug/bundle/data/flutter_assets/FontManifest.json
+/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/build/linux/x64/debug/bundle/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.bin.json
+/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/build/linux/x64/debug/bundle/data/flutter_assets/version.json
+/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/build/linux/x64/debug/bundle/data/flutter_assets/NOTICES
+/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/build/linux/x64/debug/bundle/data/flutter_assets/NOTICES.Z
+/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/build/linux/x64/debug/bundle/data/flutter_assets/NativeAssetsManifest.json
+/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/build/linux/x64/debug/bundle/data/flutter_assets/shaders/ink_sparkle.frag
+/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.bin
+/home/alex/Documents/Ampliacio DAM/tasca-arquitectura-mvvm-acaballee/build/linux/x64/debug/bundle/data/flutter_assets/kernel_blob.bin
