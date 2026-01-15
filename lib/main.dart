@@ -1,4 +1,5 @@
 import 'package:first_flutter/views/home_page.dart';
+import 'package:first_flutter/views/listed_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/product.dart';
@@ -58,6 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ? LoginScreen()
             : HomePage(userData: viewModel.currentUser);
         break;
+      case 1:
+        page = isLogin ? LoginScreen() : ListedPage();
+        break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
@@ -73,6 +77,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   icon: Icon(isLogin ? Icons.login : Icons.home),
                   label: isLogin ? 'Login' : 'Home',
                 ),
+                if (!isLogin) // Només mostrarà la segona si ja s'ha loguejat
+                  const NavigationDestination(
+                    icon: Icon(Icons.list_alt),
+                    label: 'Listed',
+                  ),
               ],
               selectedIndex: selectedIndex,
               onDestinationSelected: (value) {
@@ -94,6 +103,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         icon: Icon(isLogin ? Icons.login : Icons.home),
                         label: Text(isLogin ? 'Login' : 'Home'),
                       ),
+                      if (!isLogin) // Només mostrarà la segona si ja s'ha loguejat
+                        const NavigationRailDestination(
+                          icon: Icon(Icons.list_alt),
+                          label: Text('Listed'),
+                        ),
                     ],
                     selectedIndex: selectedIndex,
                     onDestinationSelected: (value) {
