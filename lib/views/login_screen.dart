@@ -1,5 +1,7 @@
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../viewmodels/product_viewmodel.dart';
+import 'home_page.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -7,41 +9,62 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _usernameController = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = Provider.of<ProductViewModel>(context);
 
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50.0),
-            child: TextField(
-              controller: _usernameController,
-              decoration: InputDecoration(hintText: 'Enter Username'),
-            ),
+    return Scaffold(
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (viewModel.errorMessage != null)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: Text(
+                    viewModel.errorMessage!,
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+              TextField(
+                controller: _emailController,
+                decoration: InputDecoration(hintText: 'Email'),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: _passwordController,
+                obscureText: true,
+                decoration: InputDecoration(hintText: 'Password'),
+              ),
+              SizedBox(height: 20),
+              viewModel.isLoading
+                  ? CircularProgressIndicator()
+                  : ElevatedButton(
+                      onPressed: () async {
+                        final success = await viewModel.login(
+                          _emailController.text,
+                          _passwordController.text,
+                        );
+                        if (success && context.mounted) {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  HomePage(userData: viewModel.currentUser),
+                            ),
+                          );
+                        }
+                      },
+                      child: Text('Login'),
+                    ),
+            ],
           ),
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50.0),
-            child: TextField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: InputDecoration(hintText: 'Enter Password'),
-            ),
-          ),
-          SizedBox(height: 20),
-          ElevatedButton(
-              onPressed: () {
-              },
-              child: Text('Login'),
-            ),
-          SizedBox(height: 20),
-        ],
-      )
+        ),
+      ),
     );
   }
 }

@@ -1,21 +1,18 @@
-import 'package:first_flutter/data/models/sentence.dart';
-import 'package:first_flutter/data/repositories/sentence_repository.dart';
-import 'package:first_flutter/data/services/sentence_service.dart';
-import 'package:first_flutter/presentation/viewmodels/sentence_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'models/product.dart';
+import 'repositories/product_repository.dart';
+import 'services/api_service.dart';
+import 'viewmodels/product_viewmodel.dart';
+import 'views/login_screen.dart';
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
-        Provider<ISentenceService>(
-          create: (context) =>
-              AnotherSentenceService(), // ISentenceService instance
-        ),
-        Provider<ISentenceRepository>(
-          create: (context) =>
-              SentenceRepository(sentenceService: context.read()),
+        Provider<ApiService>(create: (context) => ApiService()),
+        Provider<ProductRepository>(
+          create: (context) => ProductRepository(apiService: context.read()),
         ),
       ],
       child: const MyApp(),
@@ -29,7 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => SentenceVM(sentenceRepository: context.read()),
+      create: (context) => ProductViewModel(productRepository: context.read()),
       child: MaterialApp(
         title: 'Namer App',
         theme: ThemeData(
@@ -47,7 +44,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var selectedIndex = 0; // ← Add this property.
+  var selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 SafeArea(
                   child: NavigationRail(
-                    extended: constraints.maxWidth >= 800, // ← Here.
+                    extended: constraints.maxWidth >= 800,
                     destinations: [
                       NavigationRailDestination(
                         icon: Icon(Icons.home),
@@ -123,89 +120,10 @@ class MainArea extends StatelessWidget {
   }
 }
 
-class LoginScreen extends StatefulWidget {
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  final _usernameController = TextEditingController();
-  final _passwordController = TextEditingController();
-
-  @override
-  Widget build(BuildContext context) {
-
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50.0),
-            child: TextField(
-              controller: _usernameController,
-              decoration: InputDecoration(hintText: 'Enter Username'),
-            ),
-          ),
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50.0),
-            child: TextField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: InputDecoration(hintText: 'Enter Password'),
-            ),
-          ),
-          SizedBox(height: 20),
-          ElevatedButton(
-              onPressed: () {
-              },
-              child: Text('Login'),
-            ),
-          SizedBox(height: 20),
-        ],
-      )
-    );
-  }
-}
-
-class FavoritesPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    var appState = context.watch<SentenceVM>();
-
-    if (appState.favorites.isEmpty) {
-      return Center(child: Text('No favorites yet.'));
-    }
-    return ListView(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(20),
-          child: Text(
-            'You have '
-            '${appState.favorites.length} favorites:',
-          ),
-        ),
-        for (var word in appState.favorites)
-          ListTile(
-            leading: IconButton(
-              icon: Icon(Icons.favorite),
-              color: Theme.of(context).colorScheme.primary,
-              onPressed: () {
-                appState.toggleFavorite(word);
-              },
-              tooltip: 'Remove from favorites',
-            ),
-            title: Text(word.text),
-          ),
-      ],
-    );
-  }
-}
-
 class BigCard extends StatelessWidget {
   const BigCard({super.key, required this.pair});
 
-  final Sentence pair;
+  final Product pair;
 
   @override
   Widget build(BuildContext context) {
@@ -221,7 +139,7 @@ class BigCard extends StatelessWidget {
       elevation: 5,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Text(pair.text, style: style),
+        child: Text(pair.name, style: style),
       ),
     );
   }
