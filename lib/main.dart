@@ -1,3 +1,4 @@
+import 'package:first_flutter/views/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/product.dart';
@@ -48,10 +49,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = Provider.of<ProductViewModel>(context);
+    final isLogin = viewModel.currentUser == null;
     Widget page;
     switch (selectedIndex) {
       case 0:
-        page = LoginScreen();
+        page = isLogin
+            ? LoginScreen()
+            : HomePage(userData: viewModel.currentUser);
+        break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
@@ -63,7 +69,10 @@ class _MyHomePageState extends State<MyHomePage> {
             body: Row(children: [MainArea(page: page)]),
             bottomNavigationBar: NavigationBar(
               destinations: [
-                NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+                NavigationDestination(
+                  icon: Icon(isLogin ? Icons.login : Icons.home),
+                  label: isLogin ? 'Login' : 'Home',
+                ),
               ],
               selectedIndex: selectedIndex,
               onDestinationSelected: (value) {
@@ -82,8 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     extended: constraints.maxWidth >= 800,
                     destinations: [
                       NavigationRailDestination(
-                        icon: Icon(Icons.home),
-                        label: Text('Home'),
+                        icon: Icon(isLogin ? Icons.login : Icons.home),
+                        label: Text(isLogin ? 'Login' : 'Home'),
                       ),
                     ],
                     selectedIndex: selectedIndex,

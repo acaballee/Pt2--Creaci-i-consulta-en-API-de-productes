@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
   final Map<String, dynamic>? userData;
 
-  const HomePage({super.key, required this.userData});
-
+const HomePage({super.key, required this.userData});
   @override
   Widget build(BuildContext context) {
     final email = userData?['email'] ?? 'Desconegut';
@@ -18,7 +17,6 @@ class HomePage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () {
-              // Lògica de logout (tornar a login)
               Navigator.of(context).pushReplacementNamed('/'); 
             },
           )
