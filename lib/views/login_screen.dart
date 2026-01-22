@@ -50,7 +50,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           _passwordController.text,
                         );
                         if (success && context.mounted) {
-                          // No navigation needed, Provider will update the main app structure
                         }
                       },
                       child: Text('Login'),
