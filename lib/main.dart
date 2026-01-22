@@ -58,10 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
         page = isLogin
             ? LoginScreen()
             : HomePage(userData: viewModel.currentUser);
-        break;
       case 1:
         page = isLogin ? LoginScreen() : ListedPage();
-        break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
@@ -77,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   icon: Icon(isLogin ? Icons.login : Icons.home),
                   label: isLogin ? 'Login' : 'Home',
                 ),
-                if (!isLogin) // Només mostrarà la segona si ja s'ha loguejat
+                if (!isLogin)
                   const NavigationDestination(
                     icon: Icon(Icons.list_alt),
                     label: 'Listed',
@@ -103,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         icon: Icon(isLogin ? Icons.login : Icons.home),
                         label: Text(isLogin ? 'Login' : 'Home'),
                       ),
-                      if (!isLogin) // Només mostrarà la segona si ja s'ha loguejat
+                      if (!isLogin)
                         const NavigationRailDestination(
                           icon: Icon(Icons.list_alt),
                           label: Text('Listed'),

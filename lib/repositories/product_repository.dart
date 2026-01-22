@@ -34,4 +34,20 @@ class ProductRepository {
     // Note: Assuming createProduct in ApiService accepts a Map for Supabase
     await apiService.createProduct(product.toJson());
   }
+
+  Future<List<Product>> getUserProducts() async {
+    if (_accessToken == null || _userData == null || _userData!['id'] == null) {
+      throw Exception('User authentication data missing');
+    }
+
+    final userId = _userData!['id'];
+    final response = await apiService.getUserProducts(_accessToken!, userId);
+
+    if (response.statusCode == 200) {
+      final List<dynamic> body = jsonDecode(response.body);
+      return body.map((dynamic item) => Product.fromJson(item)).toList();
+    } else {
+      throw Exception('Failed to load user products: ${response.body}');
+    }
+  }
 }

@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../viewmodels/product_viewmodel.dart';
+import '../models/product.dart';
 
-class ListedPage extends StatelessWidget {
+class ListedPage extends StatefulWidget {
+  const ListedPage({super.key});
 
-const ListedPage({super.key});
+  @override
+  State<ListedPage> createState() => _ListedPageState();
+}
+
+class _ListedPageState extends State<ListedPage> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<ProductViewModel>(context, listen: false).fetchUserProducts();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,22 +28,42 @@ const ListedPage({super.key});
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () {
-              Navigator.of(context).pushReplacementNamed('/'); 
+              Navigator.of(context).pushReplacementNamed('/');
             },
-          )
+          ),
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(height: 20),
-            const Text(
-              "Listed",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
+      body: Consumer<ProductViewModel>(
+        builder: (context, viewModel, child) {
+          if (viewModel.isLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
+          if (viewModel.errorMessage != null) {
+            return Center(
+              child: Text(
+                viewModel.errorMessage!,
+                style: const TextStyle(color: Colors.red),
+              ),
+            );
+          }
+
+          if (viewModel.userProducts.isEmpty) {
+            return const Center(child: Text("No products found"));
+          }
+
+          return ListView.builder(
+            itemCount: viewModel.userProducts.length,
+            itemBuilder: (context, index) {
+              final product = viewModel.userProducts[index];
+              return ListTile(
+                title: Text(product.name),
+                subtitle: Text(product.description),
+                trailing: Text('${product.price} €'),
+              );
+            },
+          );
+        },
       ),
     );
   }

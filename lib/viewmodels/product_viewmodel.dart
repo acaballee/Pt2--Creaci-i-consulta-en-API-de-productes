@@ -10,6 +10,9 @@ class ProductViewModel extends ChangeNotifier {
   List<Product> _products = [];
   List<Product> get products => _products;
 
+  List<Product> _userProducts = [];
+  List<Product> get userProducts => _userProducts;
+
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
@@ -46,6 +49,21 @@ class ProductViewModel extends ChangeNotifier {
       _products = await productRepository.getProducts();
     } catch (e) {
       _errorMessage = 'Error recuperant productes: $e';
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  Future<void> fetchUserProducts() async {
+    _isLoading = true;
+    _errorMessage = null;
+    notifyListeners();
+
+    try {
+      _userProducts = await productRepository.getUserProducts();
+    } catch (e) {
+      _errorMessage = 'Error recuperant productes de l\'usuari: $e';
     } finally {
       _isLoading = false;
       notifyListeners();
