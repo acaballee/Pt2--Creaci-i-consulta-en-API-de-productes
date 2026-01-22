@@ -7,6 +7,7 @@ import 'repositories/product_repository.dart';
 import 'services/api_service.dart';
 import 'viewmodels/product_viewmodel.dart';
 import 'views/login_screen.dart';
+import 'views/creation_page.dart';
 
 void main() {
   runApp(
@@ -52,16 +53,22 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final viewModel = Provider.of<ProductViewModel>(context);
     final isLogin = viewModel.currentUser == null;
+
+    final navCount = isLogin ? 1 : 3;
+    final safeIndex = selectedIndex >= navCount ? 0 : selectedIndex;
+
     Widget page;
-    switch (selectedIndex) {
+    switch (safeIndex) {
       case 0:
         page = isLogin
             ? LoginScreen()
             : HomePage(userData: viewModel.currentUser);
       case 1:
-        page = isLogin ? LoginScreen() : ListedPage();
+        page = ListedPage();
+      case 2:
+        page = CreationPage();
       default:
-        throw UnimplementedError('no widget for $selectedIndex');
+        throw UnimplementedError('no widget for $safeIndex');
     }
 
     return LayoutBuilder(
@@ -80,8 +87,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     icon: Icon(Icons.list_alt),
                     label: 'Listed',
                   ),
+                if (!isLogin)
+                  const NavigationDestination(
+                    icon: Icon(Icons.add),
+                    label: 'Creation',
+                  ),
               ],
-              selectedIndex: selectedIndex,
+              selectedIndex: safeIndex,
               onDestinationSelected: (value) {
                 setState(() {
                   selectedIndex = value;
@@ -106,8 +118,13 @@ class _MyHomePageState extends State<MyHomePage> {
                           icon: Icon(Icons.list_alt),
                           label: Text('Listed'),
                         ),
+                      if (!isLogin)
+                        const NavigationRailDestination(
+                          icon: Icon(Icons.add),
+                          label: Text('Creation'),
+                        ),
                     ],
-                    selectedIndex: selectedIndex,
+                    selectedIndex: safeIndex,
                     onDestinationSelected: (value) {
                       setState(() {
                         selectedIndex = value;

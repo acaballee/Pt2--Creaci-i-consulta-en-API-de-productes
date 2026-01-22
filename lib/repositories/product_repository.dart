@@ -31,8 +31,10 @@ class ProductRepository {
   }
 
   Future<void> createProduct(Product product) async {
-    // Note: Assuming createProduct in ApiService accepts a Map for Supabase
-    await apiService.createProduct(product.toJson());
+    if (_accessToken == null) {
+      throw Exception('User not authenticated');
+    }
+    await apiService.createProduct(_accessToken!, product.toJson());
   }
 
   Future<List<Product>> getUserProducts() async {
@@ -49,5 +51,10 @@ class ProductRepository {
     } else {
       throw Exception('Failed to load user products: ${response.body}');
     }
+  }
+
+  void logout() {
+    _accessToken = null;
+    _userData = null;
   }
 }

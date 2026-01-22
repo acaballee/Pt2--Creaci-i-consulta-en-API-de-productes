@@ -1,10 +1,11 @@
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../viewmodels/product_viewmodel.dart';
 
 class HomePage extends StatelessWidget {
   final Map<String, dynamic>? userData;
 
-const HomePage({super.key, required this.userData});
+  const HomePage({super.key, required this.userData});
   @override
   Widget build(BuildContext context) {
     final email = userData?['email'] ?? 'Desconegut';
@@ -17,9 +18,9 @@ const HomePage({super.key, required this.userData});
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () {
-              Navigator.of(context).pushReplacementNamed('/'); 
+              context.read<ProductViewModel>().logout();
             },
-          )
+          ),
         ],
       ),
       body: Center(

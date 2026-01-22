@@ -1,0 +1,1 @@
+ /home/alex/Documents/Ampliacio\ DAM/Pt2--Creaci-i-consulta-en-API-de-productes/.dart_tool/flutter_build/783a54eae3013a34ddbbc24e1000d891/native_assets.json: 

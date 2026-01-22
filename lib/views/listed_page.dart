@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../viewmodels/product_viewmodel.dart';
-import '../models/product.dart';
 
 class ListedPage extends StatefulWidget {
   const ListedPage({super.key});
@@ -28,7 +27,7 @@ class _ListedPageState extends State<ListedPage> {
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () {
-              Navigator.of(context).pushReplacementNamed('/');
+              context.read<ProductViewModel>().logout();
             },
           ),
         ],

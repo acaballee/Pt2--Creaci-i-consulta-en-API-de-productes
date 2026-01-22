@@ -76,10 +76,12 @@ class ProductViewModel extends ChangeNotifier {
     notifyListeners();
 
     try {
+      final userId = currentUser?['id'];
       final newProduct = Product(
         name: name,
         description: description,
         price: price,
+        userId: userId,
       );
       await productRepository.createProduct(newProduct);
       // Refresh list after creation
@@ -96,8 +98,10 @@ class ProductViewModel extends ChangeNotifier {
   }
 
   void logout() {
+    productRepository.logout();
     _products = [];
-    // Ideally we clear repository state too, but keeping simple for now
+    _userProducts = [];
+    _errorMessage = null;
     notifyListeners();
   }
 }

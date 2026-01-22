@@ -41,16 +41,29 @@ class ApiService {
     return await http.get(url, headers: _headers);
   }
 
-  Future<void> createProduct(Map<String, dynamic> productData) async {
+  Future<void> createProduct(
+    String token,
+    Map<String, dynamic> productData,
+  ) async {
     final url = Uri.parse('$_baseUrl/rest/v1/products');
 
     final customHeaders = {
-      ..._headers,
+      'Content-Type': 'application/json',
+      'apikey': _anonKey,
+      'Authorization': 'Bearer $token',
       'Prefer': 'return=representation',
       'Accept': 'application/vnd.pgrst.object+json',
     };
 
-    await http.post(url, headers: customHeaders, body: jsonEncode(productData));
+    final response = await http.post(
+      url,
+      headers: customHeaders,
+      body: jsonEncode(productData),
+    );
+
+    if (response.statusCode != 201 && response.statusCode != 200) {
+      throw Exception('Error creating product: ${response.body}');
+    }
   }
 
   Future<http.Response> getUserProducts(String token, String userId) async {

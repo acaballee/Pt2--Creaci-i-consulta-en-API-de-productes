@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../viewmodels/product_viewmodel.dart';
-import 'home_page.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -51,12 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           _passwordController.text,
                         );
                         if (success && context.mounted) {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  HomePage(userData: viewModel.currentUser),
-                            ),
-                          );
+                          // No navigation needed, Provider will update the main app structure
                         }
                       },
                       child: Text('Login'),
